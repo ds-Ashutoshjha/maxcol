@@ -1,0 +1,27 @@
+{
+  "$id": "ce_headerFooter",
+  "filter": {
+    "entityIds": ["globaldata"]
+  },
+  "source": "knowledgeGraph",
+  "fields": [
+      "name",
+      "c_logo",
+      "c_headerMenu",
+      "c_topBarMenu",
+      "c_socialicon",
+      "c_footerLogo",
+      "c_contacts",
+      "c_socialTitle",
+      "c_privacy",
+      "c_cookiePolicy",
+      "c_naviogateToWebsite",
+      "c_socialicons",
+      "labels"
+
+  ],
+  "localization": {
+    "locales": ["en"],
+    "primary": false
+  }
+}
