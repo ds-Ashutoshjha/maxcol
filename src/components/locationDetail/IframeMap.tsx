@@ -1,16 +1,16 @@
 import * as React from "react";
 
-type Address = {
+type data = {
   address: any;
 };
 
-const IframeMap = (props: Address) => {
-  const { address } = props;
+const IframeMap = (data: any) => {
+  const { address } = data;
 
   return (
     <>
     <iframe className="h-[400px] w-full md:h-[500px] xl:h-full"
-      src={`https://www.google.com/maps/embed/v1/place?q=${address.line1}&language=fr&key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18`}>
+      src={`https://www.google.com/maps/embed/v1/place?q=${address}&language=fr&key=AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18`}>
     </iframe>
     </>
   );

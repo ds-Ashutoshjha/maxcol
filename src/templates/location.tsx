@@ -50,6 +50,7 @@ import {
 import {
   AnalyticsProvider,
   AnalyticsScopeProvider,
+  Link,
 } from "@yext/pages/components";
 import FeaturesBrand from "../components/locationDetail/FeaturesBrand";
 import { Fade, Slide } from "react-awesome-reveal";
@@ -72,6 +73,8 @@ export const config: TemplateConfig = {
       "address",
       "mainPhone",
       "hours",
+      "c_loyalityApp",
+      "c_loyalityPhoto",
       "photoGallery",
       "c_fuelName",
       "c_fuelCardsAccepted",
@@ -294,6 +297,8 @@ const Location: Template<ExternalApiRenderData> = ({
     address,
     slug,
     hours,
+    c_loyalityApp,
+    c_loyalityPhoto,
     photoGallery,
     c_fuelName,
     c_fuelCardsAccepted,
@@ -440,7 +445,8 @@ const Location: Template<ExternalApiRenderData> = ({
   // }) : null;
   // console.log(document)
   // let bannerimage = c_banner_image && c_banner_image.image.url;
-
+  //   console.log("testtest");
+  // console.log(c_fuelName);
   return (
     <>
       <JsonLd<Store>
@@ -490,67 +496,132 @@ const Location: Template<ExternalApiRenderData> = ({
                 </div>
               </div>
             </div> */}
-
-            <div className="banner_img_right">
-              {photoGallery.map((item: any) => {
-                return (
-                  <>
-                    <img src={item.image.url} />
-                  </>
-                );
-              })}
+            <div className="location-information">
+              {" "}
+              <Contact
+              name={name}
+              timezone={timezone}
+                address={address}
+                phone={mainPhone}
+                latitude={
+                  yextDisplayCoordinate
+                    ? yextDisplayCoordinate.latitude
+                    : displayCoordinate?.latitude
+                }
+                yextDisplayCoordinate={yextDisplayCoordinate}
+                longitude={
+                  yextDisplayCoordinate
+                    ? yextDisplayCoordinate.longitude
+                    : displayCoordinate?.longitude
+                }
+                // hours={hours}
+                // additionalHoursText={additionalHoursText}
+                
+              ></Contact>
+              
+             
+              <div className="map-sec" id="map_canvas">
+                {photoGallery.map((item: any) => {
+                  return (
+                    <>
+                      <img src={item.image.url} />
+                    </>
+                  );
+                })}
+              </div>
             </div>
-            <h2>Services</h2>
+            <div className="c-get-directions ">
+                <div className="c-get-directions-button-wrapper flex">
+                  <button className="bg-red">
+                    <h2>{c_loyalityApp.label}</h2>
+                  </button>
+                
+                    {c_loyalityPhoto.map((img:any)=>{
+                      return(
+                        <>
+                       <img src={ img?.url} alt="" />
+                        </>
+                      )
+                    })}
+                </div>
 
-            <div className="class-info">
+              </div>
+            <div className="class-info container-lg">
               <div className="info-container">
-                {c_serviceAvailable.map((iteam: any) => {
-                  // console.log(c_serviceAvailable,"Ashutoshjha")
-                  return (
-                    <>
-                      {iteam.name}
-                      {iteam.photoIcon.map((image: any) => {
-                        // console.log('imagewww', image)
-                        return (
-                          <>
-                            <img src={image.url} alt="" />
-                          </>
-                        );
-                      })}
-                    </>
-                  );
-                })}
+                <h2>Services</h2>
+                <div className="services_sec_img">
+                  {c_serviceAvailable.map((iteam: any) => {
+                    // console.log(c_serviceAvailable,"Ashutoshjha")
+                    return (
+                      <>
+                        {iteam.photoIcon.map((image: any) => {
+                          // console.log('imagewww', image)
+                          return (
+                            <>
+                              <div className="icon_services">
+                                <img src={image.url} alt="" />
+                                <span>{iteam.name}</span>
+                              </div>
+                            </>
+                          );
+                        })}
+                      </>
+                    );
+                  })}
+                </div>
+                <div className="servicesBottom">
+                  <div className="fuel-available">
+                    {c_fuelName?.fuelsAvailable}
+
+                    <div className="text-[#000]">
+                      <ul>
+                        {c_fuelName?.fuelTypes.map((item: any) => {
+                          return (
+                            <>
+                              <li> {item}</li>
+                            </>
+                          );
+                        })}
+
+                        {/* {c_fuelName?.fuelTypes.map((item: any) => {
+                        return
+                        // console.log(item);
+                        <li>{{item?.fuelTypes}}</li>
+                      })} */}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="fuelcard">
+                    {c_fuelCardsAccepted.map((iteam: any) => {
+                      return (
+                        <>
+                          <div className="icon_servicesBottom">
+                            <img src={iteam.image.url} />
+                            <span>{iteam.maxolLoyaltyAppName}</span>
+                          </div>
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-              <div className="fuel-available">
-                {c_fuelName?.fuelsAvailable}
-                <ul>
-                  <li> {c_fuelName.fuelTypes}</li>
-                </ul>
-              </div>
-              <div className="fuelcard">
-                {c_fuelCardsAccepted.map((iteam: any) => {
-                  return (
-                    <>
-                      {iteam.maxolLoyaltyAppName}
-                      <img src={iteam.image.url} />
-                    </>
-                  );
-                })}
-              </div>
+
               <div className="loyalityreward">
-                {c_loyalityReward.maxolLoyaltyAppName}
+                <h2>{c_loyalityReward.maxolLoyaltyAppName}</h2>
 
                 <img src={c_loyalityReward.image.url} />
-                {c_loyalityReward.textDescription}
+                <p>{c_loyalityReward.textDescription}</p>
                 <ul>
                   <li>{c_keyBenefits}</li>
                 </ul>
               </div>
             </div>
             {/* <div>{ c_brandsAtThisLocationHeading}</div> */}
-            <h1 className="text-hover-btn justify-center text-center">
+
+            {/* <h1 className="text-hover-btn justify-center text-center">
               Brands at this Location
-            </h1>
+            </h1> */}
+            <h1> <div className="justify-center text-center">{c_brandsAtThisLocationHeading}</div></h1>
             <div className="flex">
               {c_brandsAtThisLocation.map((iteam: any) => {
                 return (
@@ -593,27 +664,54 @@ const Location: Template<ExternalApiRenderData> = ({
                 );
               })}
             </div>
-            <div className="service-station">
-              {c_serviceStation.map((iteam: any) => {
-                return (
-                  <>
-                    <div></div>
-                    <div>
-                      <h2>{iteam?.heading}</h2>
-                      <p>{iteam?.description}</p>
-                      <button className="bg-black">{iteam?.cta?.label}</button>
-                    </div>
-                  </>
-                );
-              })}
-            </div>
 
+            <div className="about-sec ">
+              <div className="container-custom mappAbout">
+             
+                <div className="about-inner-sec">
+                <div className="map-sec without-hours" id="map_canvas">
+                  <CustomMap
+                    prop={
+                      yextDisplayCoordinate
+                        ? yextDisplayCoordinate
+                        : displayCoordinate
+                    }
+                  />
+                </div>
+                  {/* {custom map} */}
+                  {c_serviceStation?.map((datas: any) => {
+                    // console.log(datas, "jio");
+                    return (
+                      <>
+                        <div className="about-content">
+                          <div className="mb-4">
+                            <h2>{datas.heading}</h2>
+                            <div className="">
+                              <p>{datas?.description}</p>
+                            </div>
+
+                            <div className="content-center w-full ">
+                              <a
+                                href=""
+                                className="button-red"
+                                data-ya-track={`about-button`}
+                                rel="noopener noreferrer"
+                              >
+                                {datas.cta.label}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+           
             {/* {c_engineSectionTitle} */}
 
-            {/* {c_fuelCardsAccepted?.image?.url}
-        {c_servicesFeild} 
-           */}
-            <div className="location-information">
+            {/* <div className="location-information">
               <Contact
                 address={address}
                 phone={mainPhone}
@@ -631,7 +729,8 @@ const Location: Template<ExternalApiRenderData> = ({
                 hours={hours}
                 additionalHoursText={additionalHoursText}
               ></Contact>
-              {hours ? (
+
+              {name ? (
                 <div className="map-sec" id="map_canvas">
                   <CustomMap
                     prop={
@@ -652,7 +751,7 @@ const Location: Template<ExternalApiRenderData> = ({
                   />
                 </div>
               )}
-            </div>
+            </div> */}
 
             <div className="nearby-sec">
               <div className="container">
@@ -670,7 +769,6 @@ const Location: Template<ExternalApiRenderData> = ({
                 </div>
                 <div className="cta location">
                   <button>
-                    
                     <h2>{c_findALocation.label}</h2>
                   </button>
                 </div>

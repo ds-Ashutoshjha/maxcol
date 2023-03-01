@@ -14,12 +14,12 @@ import Link from "../commons/Link";
 
 const Footer = (props: any) => {
   const { footer } = props;
-  console.log("footer", footer);
+  // console.log("footer", footer);
   // const [isNavVisible, setNavVisibility] =  useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  console.log("premsaini");
-  console.log(footer);
+  // console.log("premsaini");
+  // console.log(footer);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1024px)");

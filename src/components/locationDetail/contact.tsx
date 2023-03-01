@@ -10,10 +10,12 @@ import { StaticData } from "../../../sites-global/staticData";
 import Holidayhours from "./Holdayhours";
 import Model from "./Model";
 import CustomMap from "./CustomMap";
+import OpenClose from "../commons/openClose";
 
 const Contact = (props: any) => {
   const {
     address,
+    timezone,
     phone,
     latitude,
     longitude,
@@ -21,13 +23,13 @@ const Contact = (props: any) => {
     c_specific_day,
     additionalHoursText,
     yextDisplayCoordinate,
-    c_storeInfoHeading,
+    name,
     c_getDirectionsCTAText
   } = props;
   return (
     <>
       <div className="address-main-sec">
-        <h4 className="box-title">{c_storeInfoHeading?c_storeInfoHeading:"Store Details"}</h4>
+        <h4 className="box-title">{name?name:"Store Details"}</h4>
 
         <div className="icon-row content-col">
           <div className="icon">
@@ -41,7 +43,22 @@ const Contact = (props: any) => {
             <div>{address.postalCode}</div>
           </div>
         </div>
-
+        {/* {hours?.openIntervals.map((item: any) => {
+          console.log(item,"rewhfhjfhfvhjkfvhkjhujhgujrh")
+              return (
+                <>
+                  <div
+                    style={{
+                      fontWeight: "600",
+                      fontSize: "18px",
+                      color: "white",
+                    }}
+                  >
+                    {item?.end}
+                  </div>
+                </>
+              );
+            })} */}
         {phone ? (
           <div className="icon-row">
             <div className="icon">
@@ -51,6 +68,9 @@ const Contact = (props: any) => {
             <div className="content-col">
               <a id="address" className=" location-phn" href={`tel:${phone}`}>
                 {phone}
+                <div>
+                <OpenClose timezone={timezone} hours={hours} />
+                </div>
               </a>
             </div>
           </div>

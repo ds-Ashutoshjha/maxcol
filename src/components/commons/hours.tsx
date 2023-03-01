@@ -418,9 +418,9 @@ const Hours = (props: Hours) => {
     }
     return a.map(format).join(s);
   }
-  if (hours.reopenDate) {
+  if (hours?.reopenDate) {
     a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
-    s = join(new Date(hours.reopenDate), a, " ");
+    s = join(new Date(hours?.reopenDate), a, " ");
     dateNewFormat = s;
   }
 
@@ -434,12 +434,12 @@ const Hours = (props: Hours) => {
           </tr>
         </thead>
 
-        {hours && hours.reopenDate ? (
+        {hours && hours?.reopenDate ? (
           <span>
             {additionalHoursText} <br />
             <span>
               {" "}
-              {StaticData.Reopenmessage} {dateNewFormat}{" "}
+              {StaticData?.Reopenmessage} {dateNewFormat}{" "}
             </span>
           </span>
         ) : (
