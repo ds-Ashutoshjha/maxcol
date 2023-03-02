@@ -514,6 +514,8 @@ const Location: Template<ExternalApiRenderData> = ({
                     ? yextDisplayCoordinate.longitude
                     : displayCoordinate?.longitude
                 }
+                c_loyalityPhoto={c_loyalityPhoto}
+                c_loyalityApp={c_loyalityApp}
                 // hours={hours}
                 // additionalHoursText={additionalHoursText}
                 
@@ -530,22 +532,7 @@ const Location: Template<ExternalApiRenderData> = ({
                 })}
               </div>
             </div>
-            <div className="c-get-directions ">
-                <div className="c-get-directions-button-wrapper flex">
-                  <button className="bg-red">
-                    <h2>{c_loyalityApp.label}</h2>
-                  </button>
-                
-                    {c_loyalityPhoto.map((img:any)=>{
-                      return(
-                        <>
-                       <img src={ img?.url} alt="" />
-                        </>
-                      )
-                    })}
-                </div>
-
-              </div>
+       
             <div className="class-info container-lg">
               <div className="info-container">
                 <h2>Services</h2>
@@ -621,19 +608,23 @@ const Location: Template<ExternalApiRenderData> = ({
             {/* <h1 className="text-hover-btn justify-center text-center">
               Brands at this Location
             </h1> */}
-            <h1> <div className="justify-center text-center">{c_brandsAtThisLocationHeading}</div></h1>
-            <div className="flex">
+             <div className="justify-center text-center ServicesSection"><h1>{c_brandsAtThisLocationHeading}</h1></div>
+            <div className="flex ServicesSection justify-center text-center">
               {c_brandsAtThisLocation.map((iteam: any) => {
                 return (
                   <>
-                    {iteam?.title}
-                    {iteam?.icons?.map((img: any) => {
-                      return (
-                        <>
-                          <img src={img?.url} />
-                        </>
-                      );
-                    })}
+                    <div className="serImg">
+                      {iteam?.icons?.map((img: any) => {
+                        return (
+                          <>
+                            <img src={img?.url} />
+                          </>
+                        );
+                      })}
+                       <h2 className="mt-5">{iteam?.title}</h2>
+                    </div>
+                   
+                   
                   </>
                 );
               })}
@@ -648,16 +639,16 @@ const Location: Template<ExternalApiRenderData> = ({
 
                     <div className="max-w-sm rounded overflow-hidden shadow-lg">
                       <img className="w-full" src={iteam?.image?.url} alt="" />
-                      <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2">
+                      <div className="px-6 py-4 careContentArea">
+                        <div className="font-bold text-xl mb-2 text-center">
                           {iteam?.heading}
                         </div>
-                        <p className="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base careDescription">
                           {iteam?.description}
                         </p>
                       </div>
                       <div>
-                        <button>Learn More</button>
+                        <button className="careButton">Learn More</button>
                       </div>
                     </div>
                   </>

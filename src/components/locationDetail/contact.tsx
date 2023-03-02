@@ -24,7 +24,9 @@ const Contact = (props: any) => {
     additionalHoursText,
     yextDisplayCoordinate,
     name,
-    c_getDirectionsCTAText
+    c_getDirectionsCTAText,
+    c_loyalityPhoto,
+    c_loyalityApp
   } = props;
   return (
     <>
@@ -88,6 +90,25 @@ const Contact = (props: any) => {
             />
           </li>
         </ul>
+
+
+        <div className="c-get-directions ">
+                <div className="c-get-directions-button-wrapper">
+                  <button className="bg-red DownloadButton">
+                        {c_loyalityApp.label}
+                  </button>
+                <div className="playIconsImg flex">
+                  {c_loyalityPhoto.map((img:any)=>{
+                        return(
+                          <>
+                        <img src={ img?.url} alt="" />
+                          </>
+                        )
+                      })}
+                </div>
+                </div>
+
+              </div>
 
         <div className="map-sec">
           <CustomMap prop={yextDisplayCoordinate} />

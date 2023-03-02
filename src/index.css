@@ -811,20 +811,25 @@ footer.site-footer {
 .icon_servicesBottom img {
   width: 50px;
 }
-button.bg-red {
-  font-size: 1rem;
-  line-height: 1;
-  font-family: "Foco",Helvetica,Arial,sans-serif;
-  font-weight: 100;
-  text-align: center;
-  display: inline-block;
+
+button.bg-red.DownloadButton {
+  width: 100%;
+  font-size: 19px;
+  padding: 25px 0;
+  background: #00659b;
   color: #fff;
-  background-color: #00659b;
-  padding: 0.90625rem 2.1875rem;
-  border: 0.0625rem solid #00659b;
-  border-radius: 0.5rem;
-  width: 20%;
-  margin-bottom: 2.625rem;
+  font-weight: 600;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+.address-main-sec .button-bx .btn {
+  width: 100%;
+  font-size: 19px;
+  padding: 25px 0;
+  background: #00659b !important;
+  font-weight: 600;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
 .about-sec .about-content {
@@ -838,4 +843,59 @@ button.bg-red {
   display: flex;
   width: 100%;
   gap: 12px;
+}
+.playIconsImg.flex img {
+  width: 48%;
+}
+.playIconsImg.flex {
+  gap: 10px;
+}
+.address-main-sec {
+  width: 30%;
+}
+
+div#map_canvas {
+  width: 68%;
+}
+.ServicesSection img {
+  width: 230px;
+  
+}
+
+.ServicesSection {
+  gap: 40px;
+    margin-top: 33px;
+}
+
+button.careButton {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: #00659b;
+  background-color: #fff;
+  padding: 0.90625rem 2.1875rem;
+  border: 0.0625rem solid #00659b;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.careContentArea {
+  height: 220px;
+}
+
+button.careButton:hover {
+  color: #fff;
+  background-color: #00659b;
+  border: 0.0625rem solid #00659b;
+}
+.careDescription {
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  color: #7b6b5b;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  padding-bottom: 1rem;
 }
