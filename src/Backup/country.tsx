@@ -54,7 +54,7 @@ export const config: TemplateConfig = {
     filter: {
       entityTypes: ["ce_country"],
       savedFilterIds: [
-        "dm_matalan-stores-directory_address_countrycode"
+        "dm_stores-directory_address_countrycode"
       ]
     },
     // The entity language profiles that documents will be generated for.

@@ -49,7 +49,7 @@ export const config: TemplateConfig = {
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      // entityTypes: ["ce_region"],
+      entityTypes: ["ce_region"],
       savedFilterIds: ["dm_stores-directory_address_region"]
     },
     // The entity language profiles that documents will be generated for.
