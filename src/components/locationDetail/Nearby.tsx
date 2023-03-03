@@ -74,9 +74,6 @@ export default function Nearby(props: any) {
                         rel="noopener noreferrer">{location.data.name}</Link></h2>
 
                     </div>
-                    <div className="icon-row content-col">
-                      <Address address={location.data.address} />
-                    </div>
                     <div className="icon-row closeing-div">
                     {location.data.hours?
                     <div className="flex open-now-string items-center " data-id={`main-shop-${location.data.id}`} >
@@ -92,14 +89,34 @@ export default function Nearby(props: any) {
                    </div>
                     }
                     </div> 
+                    <div className="icon-row content-col">
+                      <Address address={location.data.address} />
+                    </div>
                     <div className="button-bx">
-                      <Link className="btn" href={`/${location.data.id}`}
+                      {/* <Link className="btn" href={`/${location.data.id}`}
                        data-ya-track={`viewstore-${location.data.name}`}
                        eventName={`viewstore-${location.data.name}`}
                        rel="noopener noreferrer">
-                        {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
-                        STORE DETAILS</Link>
-                      <GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Get directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
+                         <div dangerouslySetInnerHTML={{__html: View_Store}}/> 
+                        STORE DETAILS</Link> */}
+                         <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                      
+                      <div className="px-6 py-4">
+
+                        <div>
+
+      
+                  <GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Get directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
+              
+                        
+                        </div>
+                      </div>
+                      <div>
+                        
+                      </div>
+                    </div>
+
+                      {/* <GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Get directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} /> */}
                       
                     </div>
                   </div>

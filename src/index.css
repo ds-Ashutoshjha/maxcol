@@ -778,7 +778,7 @@ footer.site-footer {
 }
 
 .loyalityreward p{
-  font-size: 25px;
+  font-size: 18px;
   line-height: 42px;
   margin: 22px 0;
 }
@@ -898,4 +898,312 @@ button.careButton:hover {
   font-size: 1.125rem;
   line-height: 1.5;
   padding-bottom: 1rem;
+}
+.Nearby-row {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.Nearby-linkWrapper {
+  width: 100%;
+  text-align: center;
+}
+
+h2.NearbyLink-Wrapper {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  background-color: #00659b;
+  padding: 0.90625rem 2.1875rem;
+  border: 0.0625rem solid #00659b;
+  border-radius: 0.5rem;
+}
+button.careButton {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: #00659b;
+  background-color: #fff;
+  padding: 0.90625rem 2.1875rem;
+  border: 0.0625rem solid #00659b;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.max-w-sm.rounded.overflow-hidden.shadow-lg {
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+button.careButton {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: #00659b;
+  background-color: #fff;
+  padding: 0.90625rem 0.1875rem;
+  border: 0.0625rem solid #00659b;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.nearby-card .button-bx .btn.notHighligh {
+  margin-left: 6.5rem;
+  justify-content: flex-start;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.nearby-card {
+    padding: 3.25rem;
+}
+p.text-gray-700.text-base.careDescription {
+  font-size: 1.45rem;
+}
+.flex.gap-3.iteams-center.menu-custom.header_menus {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+
+  .Header-topMenu {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.flex.gap-x-4.items-center.menus_custom {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 40px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 95.5rem;
+  justify-content: center;
+  width: 100%;
+}
+.a {
+  font-size: 1.3125rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+
+header {
+  height: 12.6875rem;
+  border-bottom: 0.625rem solid #ffcf24;
+}
+
+.Header-container {
+  width: 80.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-left: auto;
+    margin-right: auto;
+  position: relative;
+}
+
+.Header-menuMain {
+  width: calc(100% - 2.75rem);
+  position: absolute;
+  left: -0.4375rem;
+  top: 0.625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Header-logoWrapper, .Header-logoLink, .Header-logoImage {
+
+  display: flex;
+  width: 9.8125rem;
+  height: 4.6875rem;
+}
+
+.Header-top.u-mobile-header-hide {
+  display: flex;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+ul.Header-topMenuLinks {
+  display: flex;
+  align-items: center;
+}
+
+.Header-socialLinks {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.SocialLinks-linkWrapper {
+  margin-right: 0.125rem;
+}
+
+li.Header-menuItem {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+a.Link.SocialLinks-link.header_link {
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  color: #fff;
+  display: inline-block;
+}
+
+
+.Header-main {
+  display: flex;
+  width: 100%;
+}
+.Header-row {
+  display: flex;
+}
+.Header-content {
+  display: flex;
+  width: 100%;
+}
+
+.Header-menu {
+  display: flex;
+  width: 100%;
+}
+
+.Header-desktopMenu {
+  display: flex;
+  width: 100%;
+}
+.Header-desktopMenuLinks {
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+}
+
+a.Header-link {
+  font-size: 1.3125rem;
+  line-height: 3.62;
+  cursor: pointer;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.headerbg{
+  background: -webkit-gradient(linear,left top,left bottom,from(#006cb3),to(#00548b));
+}
+
+.Header-topMenu .Header-menuItem::after {
+  content: "";
+  display: inline-block;
+  background-color: #7f7f7f;
+  margin-left: 0.4375rem;
+  margin-right: 0.4375rem;
+  height: 1.1875rem;
+  width: 0.125rem;
+}
+
+li.Header-menuItem.linkyello a.Link.SocialLinks-link.header_link {
+  color: #dbba84;
+  font-weight: 600;
+}
+a.Link.c-get-directions-button {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: "Foco",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  color: #00659b;
+  background-color: #fff;
+  padding: 0.90625rem 2.1875rem;
+  border: 0.0625rem solid #00659b;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+a.Link.c-get-directions-button:hover {
+  color: #fff;
+  background-color: #00659b;
+  border: 0.0625rem solid #00659b;
+}
+
+p.about_per {
+  margin: 0;
+}
+
+.servicesBottom ul {
+  list-style: unset;
+}
+
+.store-locator.Footer1 {
+  width: 25%;
+}
+.store-locator.Footer2 {
+  width: 33.3333333333%;
+}
+
+.store-locator.Footer3 {
+  width: 41.6666666667%;
+}
+.store-locator .footer-block .contact-us.mr-4 {
+  color: #fff;
+  font-size: 21px;
+}
+.Breadcrumbs-section.l-hidden-xs {
+  
+  border-bottom: 0.0625rem solid #d3d3d3;
+}
+.Breadcrumbs-container.l-container {
+  padding-top: 1rem;
+}
+.Breadcrumbs-container.l-container {
+  display: block;
+}
+ol.Breadcrumbs-list {
+  display: flex;
+}
+a.Link.home {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }

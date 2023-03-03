@@ -56,6 +56,7 @@ import FeaturesBrand from "../components/locationDetail/FeaturesBrand";
 import { Fade, Slide } from "react-awesome-reveal";
 import MgmTimber from "../components/locationDetail/MgmTimber";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
+import Hours from "../components/commons/hours";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -296,6 +297,7 @@ const Location: Template<ExternalApiRenderData> = ({
   externalApiData,
 }) => {
   const {
+    id,
     _site,
     address,
     slug,
@@ -328,6 +330,14 @@ const Location: Template<ExternalApiRenderData> = ({
     dm_directoryParents,
   } = document;
 
+  const [timeStatus, setTimeStatus] = React.useState("");
+  const onOpenHide = () => {
+    if (timeStatus == "") {
+      setTimeStatus("active");
+    } else {
+      setTimeStatus("");
+    }
+  };
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
   let breadcrumbScheme = [];
@@ -449,41 +459,41 @@ const Location: Template<ExternalApiRenderData> = ({
   // }) : null;
   // console.log(document)
   // let bannerimage = c_banner_image && c_banner_image.image.url;
-  //   console.log("testtest");
-  // console.log(c_fuelName);
+    console.log("testtest");
+  console.log(c_keyBenefits);
   return (
     <>
       <JsonLd<Store>
-      // item={{
-      //   "@context": "https://schema.org",
-      //   "@type": "DepartmentStore",
-      //   name: name,
-      //   address: {
-      //     "@type": "PostalAddress",
-      //     streetAddress: address.line1,
-      //     addressLocality: address.city,
-      //     addressRegion: address.region,
-      //     postalCode: address.postalCode,
-      //     addressCountry: address.countryCode,
-      //   },
-      //   openingHoursSpecification: hoursSchema,
-      //   description: description,
-      //   // image: imageurl,
-      //   telephone: mainPhone,
-      //   url: `${c_canonical ? c_canonical : stagingBaseurl}${
-      //     slug ? slug : `${name}`
-      //   }.html`,
-      // }}
+        item={undefined} // item={{
+        //   "@context": "https://schema.org",
+        //   "@type": "DepartmentStore",
+        //   name: name,
+        //   address: {
+        //     "@type": "PostalAddress",
+        //     streetAddress: address.line1,
+        //     addressLocality: address.city,
+        //     addressRegion: address.region,
+        //     postalCode: address.postalCode,
+        //     addressCountry: address.countryCode,
+        //   },
+        //   openingHoursSpecification: hoursSchema,
+        //   description: description,
+        //   // image: imageurl,
+        //   telephone: mainPhone,
+        //   url: `${c_canonical ? c_canonical : stagingBaseurl}${
+        //     slug ? slug : `${name}`
+        //   }.html`,
+        // }}
       />
       <JsonLd<BreadcrumbList>
-      // item={{
-      //   "@context": "https://schema.org",
-      //   "@type": "BreadcrumbList",
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
 
-      //   itemListElement: breadcrumbScheme,
-      // }}
+          itemListElement: breadcrumbScheme,
+        }}
       />
-
+              
       <AnalyticsProvider
         templateData={templateData}
         enableDebugging={AnalyticsEnableDebugging}
@@ -500,11 +510,24 @@ const Location: Template<ExternalApiRenderData> = ({
                 </div>
               </div>
             </div> */}
+           <div className="Breadcrumbs-section l-hidden-xs">
+           <div className="Breadcrumbs-container l-container">
+            <nav className="Breadcrumbs Breadcrumbs-breadcrumbs data-ya-scope aria-label">
+              <ol className="Breadcrumbs-list">
+                <li><BreadCrumbs
+              name={name}
+              parents={dm_directoryParents}
+              address={address}
+            ></BreadCrumbs></li>
+            </ol>
+            </nav>
+            </div>
+            </div>
             <div className="location-information">
               {" "}
               <Contact
-              name={name}
-              timezone={timezone}
+                name={name}
+                timezone={timezone}
                 address={address}
                 phone={mainPhone}
                 latitude={
@@ -520,12 +543,9 @@ const Location: Template<ExternalApiRenderData> = ({
                 }
                 c_loyalityPhoto={c_loyalityPhoto}
                 c_loyalityApp={c_loyalityApp}
-                // hours={hours}
+                hours={hours}
                 // additionalHoursText={additionalHoursText}
-                
               ></Contact>
-              
-             
               <div className="map-sec" id="map_canvas">
                 {photoGallery.map((item: any) => {
                   return (
@@ -536,7 +556,7 @@ const Location: Template<ExternalApiRenderData> = ({
                 })}
               </div>
             </div>
-       
+
             <div className="class-info container-lg">
               <div className="info-container">
                 <h2>Services</h2>
@@ -603,7 +623,14 @@ const Location: Template<ExternalApiRenderData> = ({
                 <img src={c_loyalityReward.image.url} />
                 <p>{c_loyalityReward.textDescription}</p>
                 <ul>
-                  <li>{c_keyBenefits}</li>
+                {c_keyBenefits.map((iteam: any) => {
+                    return (
+                      <>
+                        <li><p className="about_per">{iteam}</p></li>
+                       </>
+                      );
+                })}
+
                 </ul>
               </div>
             </div>
@@ -612,7 +639,9 @@ const Location: Template<ExternalApiRenderData> = ({
             {/* <h1 className="text-hover-btn justify-center text-center">
               Brands at this Location
             </h1> */}
-             <div className="justify-center text-center ServicesSection"><h1>{c_brandsAtThisLocationHeading}</h1></div>
+            <div className="justify-center text-center ServicesSection">
+              <h1>{c_brandsAtThisLocationHeading}</h1>
+            </div>
             <div className="flex ServicesSection justify-center text-center">
               {c_brandsAtThisLocation.map((iteam: any) => {
                 return (
@@ -625,10 +654,8 @@ const Location: Template<ExternalApiRenderData> = ({
                           </>
                         );
                       })}
-                       <h2 className="mt-5">{iteam?.title}</h2>
+                      <h2 className="mt-5">{iteam?.title}</h2>
                     </div>
-                   
-                   
                   </>
                 );
               })}
@@ -662,17 +689,16 @@ const Location: Template<ExternalApiRenderData> = ({
 
             <div className="about-sec ">
               <div className="container-custom mappAbout">
-             
                 <div className="about-inner-sec">
-                <div className="map-sec without-hours" id="map_canvas">
-                  <CustomMap
-                    prop={
-                      yextDisplayCoordinate
-                        ? yextDisplayCoordinate
-                        : displayCoordinate
-                    }
-                  />
-                </div>
+                  <div className="map-sec without-hours" id="map_canvas">
+                    <CustomMap
+                      prop={
+                        yextDisplayCoordinate
+                          ? yextDisplayCoordinate
+                          : displayCoordinate
+                      }
+                    />
+                  </div>
                   {/* {custom map} */}
                   {c_serviceStation?.map((datas: any) => {
                     // console.log(datas, "jio");
@@ -703,7 +729,7 @@ const Location: Template<ExternalApiRenderData> = ({
                 </div>
               </div>
             </div>
-           
+
             {/* {c_engineSectionTitle} */}
 
             {/* <div className="location-information">
@@ -762,10 +788,16 @@ const Location: Template<ExternalApiRenderData> = ({
                     ""
                   )}
                 </div>
-                <div className="cta location">
-                  <button>
-                    <h2>{c_findALocation.label}</h2>
-                  </button>
+                <div className="Nearby-row">
+                  <div className="Nearby-linkWrapper">
+                    <button>
+                      <div className="Nearby-Link">
+                        <h2 className="NearbyLink-Wrapper">
+                          {c_findALocation.label}
+                        </h2>
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

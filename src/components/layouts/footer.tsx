@@ -43,12 +43,12 @@ const Footer = (props: any) => {
     <>
       <footer className="site-footer">
         <div className="container">
-          <div className="store-locator">
+          <div className="store-locator Footer1">
             <div className="company-logo mr-4">
               <img src={footer.c_footerLogo.url} alt="logo" />
             </div>
           </div>
-          <div className="store-locator">
+          <div className="store-locator Footer2">
             <div className="footer-block">
               <h2>{footer?.c_contacts?.title}</h2>
               <div className="contact-us mr-4">
@@ -57,7 +57,7 @@ const Footer = (props: any) => {
               </div>
             </div>
           </div>
-          <div className="store-locator">
+          <div className="store-locator Footer3">
             <div className="footer-block">
               <h2 className="chatter">{footer?.c_socialTitle}</h2>
               <div className="footer-block">
