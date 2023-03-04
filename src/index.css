@@ -1248,3 +1248,6 @@ ol, ul, menu {
    gap: 1rem;
   font-size: medium;
 }
+.class-info.container-lg {
+  background-color: #f5f5f5;
+}
