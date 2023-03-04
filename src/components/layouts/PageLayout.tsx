@@ -10,15 +10,21 @@ type Props = {
     _site?: any;
     global:any;
     children?: React.ReactNode;
-    c_logo?:any
+    c_logo?:any;
+    c_headerMenu:any;
+    c_topBarMenu:any;
+    c_socialicons:any;
 };
   
   const PageLayout = ({
     title,
     _site,
     global,
-    children,
+    children, 
     c_logo,
+    c_headerMenu,
+    c_topBarMenu,
+    c_socialicons
   }: Props) => {
     
     return (

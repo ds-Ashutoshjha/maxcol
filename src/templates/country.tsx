@@ -239,9 +239,9 @@ const country: Template<TemplateRenderProps> = ({
             if (!detl.slug) {
               let slugString = detl.id + " " + detl.name;
               let slug =slugString;
-              detlslug1 = `${slug}.html`;
+              detlslug1 = `/${slug}.html`;
             } else {
-              detlslug1 = `${detl.slug.toString()}.html`;
+              detlslug1 = `/${detl.slug.toString()}.html`;
             }
 
             detlslug = detlslug1;

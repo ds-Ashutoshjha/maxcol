@@ -142,7 +142,7 @@ body.mapView .mobile-btns .btn.mapBtn{  @apply text-Dark-red border-t-0 border-l
    
 .location .button-bx{  @apply max-w-lg justify-start xl:mx-auto pl-2 flex-row lg:pl-7}
 .result-list .location{ @apply first:mt-0}
-.location .button-bx .btn{@apply w-[9.75rem] bg-Dark-red font-second-main-font text-lg  border-none text-white    }
+.location .button-bx .btn{@apply w-[17.75rem] bg-Dark-red font-second-main-font text-lg  border-none text-white    }
 .location .button-bx .btn.notHighligh{@apply w-full md:w-[48%] bg-transparent justify-start mt-0  border-none text-black underline  }
 .location .button-bx .btn + .btn{  @apply mt-2 ml-2 md:mt-0 hover:no-underline   w-auto }
 .location .button-bx .btn:hover svg{@apply !fill-red }
@@ -1206,4 +1206,45 @@ a.Link.home {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+}
+h2.ProductTitle {
+  text-align: center;
+  padding-top: 3rem;
+  font-weight: bold;
+  padding-bottom: 0rem;
+}
+.Info-label {
+  font-size: 1.4375rem;
+  line-height: 1;
+}
+.icon_servicesBottom {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.icon_servicesBottom {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.icon_servicesBottom {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.fuelcard {
+  font-size: 1.4375rem;
+  line-height: 1;
+}
+.Fuel_Heading {
+  font-size: 1.4375rem;
+  line-height: 1;
+}
+ol, ul, menu {
+   gap: 1rem;
+  font-size: medium;
 }

@@ -97,6 +97,7 @@ export const config: TemplateConfig = {
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
+      "c_fuelheading",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -158,7 +159,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   return {
     title: document.c_meta_title
       ? document.c_meta_title
-      : `${document.name} Store of MGM Timber`,
+      : `${document.name} Maxol Service Station`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
@@ -169,7 +170,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Maxol Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -207,7 +208,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Maxol Station in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -245,7 +246,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           name: "twitter:title",
           content: document.c_meta_title
             ? document.c_meta_title
-            : `${document.name} Store of MGM Timber`,
+            : `${document.name} Maxol Station in`,
         },
       },
       {
@@ -255,7 +256,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Maxol Station in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -328,6 +329,7 @@ const Location: Template<ExternalApiRenderData> = ({
     cityCoordinate,
     name,
     dm_directoryParents,
+    c_fuelheading,
   } = document;
 
   const [timeStatus, setTimeStatus] = React.useState("");
@@ -582,10 +584,12 @@ const Location: Template<ExternalApiRenderData> = ({
                 </div>
                 <div className="servicesBottom">
                   <div className="fuel-available">
-                    {c_fuelName?.fuelsAvailable}
+                    <div className="Fuel_Heading">
+                    <h3>{c_fuelName?.fuelsAvailable} </h3>
+                    </div>
 
                     <div className="text-[#000]">
-                      <ul>
+                      <ul className="Info-fuelsAvailable">
                         {c_fuelName?.fuelTypes.map((item: any) => {
                           return (
                             <>
@@ -603,6 +607,7 @@ const Location: Template<ExternalApiRenderData> = ({
                     </div>
                   </div>
                   <div className="fuelcard">
+                    <div className="Info-label"><h3>{c_fuelheading}</h3></div>
                     {c_fuelCardsAccepted.map((iteam: any) => {
                       return (
                         <>
@@ -640,10 +645,11 @@ const Location: Template<ExternalApiRenderData> = ({
               Brands at this Location
             </h1> */}
             <div className="justify-center text-center ServicesSection">
-              <h1>{c_brandsAtThisLocationHeading}</h1>
+              <div><h1>{c_brandsAtThisLocationHeading}</h1></div>
             </div>
             <div className="flex ServicesSection justify-center text-center">
               {c_brandsAtThisLocation.map((iteam: any) => {
+                // console.log({c_brandsAtThisLocationHeading},"Ashutoshjha")
                 return (
                   <>
                     <div className="serImg">
@@ -660,7 +666,8 @@ const Location: Template<ExternalApiRenderData> = ({
                 );
               })}
             </div>
-            <div>{/* {c_engineSectionTitle} */}</div>
+           <div className="Products-row">
+              <h2 className="ProductTitle">{c_engineSectionTitle}</h2></div>
 
             <div className="flex justify-center gap-12 my-32">
               {c_engineCareField.map((iteam: any) => {
