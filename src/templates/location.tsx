@@ -519,6 +519,7 @@ const Location: Template<ExternalApiRenderData> = ({
                 <li><BreadCrumbs
               name={name}
               parents={dm_directoryParents}
+              baseUrl={relativePrefixToRoot}
               address={address}
             ></BreadCrumbs></li>
             </ol>

@@ -15,7 +15,7 @@ import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
 import PageLayout from "../components/layouts/PageLayout";
-import { favicon, regionNames, stagingBaseurl } from "../../sites-global/global";
+import { baseuRL, favicon, regionNames, stagingBaseurl } from "../../sites-global/global";
 
 
 
@@ -38,17 +38,38 @@ export const config: TemplateConfig = {
       "slug",
       // "c_locatorBannerImage",
       // "c_locatorBannerTitle",
+      // "dm_directoryParents.name",
+      // "dm_directoryParents.slug",
+      // "dm_directoryParents.meta.entityType",
+      // "dm_directoryChildren.name",
+      // "dm_directoryChildren.address",
+      // "dm_directoryChildren.slug",
+      // "dm_directoryChildren.dm_directoryChildren.name",
+      // "dm_directoryChildren.dm_directoryChildrenCount",
+      // "dm_directoryChildren.dm_directoryChildren.slug",
+      // "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.name",
+      // "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.slug"
+      "dm_directoryChildren.name",
+      "dm_directoryChildren.id",
+      "dm_directoryChildren.slug",
+      "dm_directoryChildren.dm_directoryChildrenCount",
+      "dm_directoryChildren.meta.entityType",
+
+      "dm_directoryChildren.dm_directoryChildren.name",
+      "dm_directoryChildren.dm_directoryChildren.id",
+      "dm_directoryChildren.dm_directoryChildren.slug",
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildrenCount",
+      "dm_directoryChildren.dm_directoryChildren.meta.entityType",
+
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.name",
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.id",
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.slug",
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.meta.entityType",
+
+      "dm_directoryParents.id",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
-      "dm_directoryChildren.name",
-      "dm_directoryChildren.address",
-      "dm_directoryChildren.slug",
-      "dm_directoryChildren.dm_directoryChildren.name",
-      "dm_directoryChildren.dm_directoryChildrenCount",
-      "dm_directoryChildren.dm_directoryChildren.slug",
-      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.name",
-      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.slug"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -199,74 +220,49 @@ const country: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const {
-    name,
-    slug,
-    _site,
-    address,
-    c_locatorBannerImage,
-    c_locatorBannerTitle,
-    dm_directoryParents,
-    dm_directoryChildren
-  } = document;
-  const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
-    let detlslug;
+  const { name,slug, _site, address,c_locatorBannerImage,c_locatorBannerTitle, dm_directoryParents,dm_directoryChildren} = document;
+  var slugs="";
 
 
-    if (typeof entity.dm_directoryChildren != "undefined") {
-      if (entity.dm_directoryChildrenCount == 1) {
-        entity.dm_directoryChildren.map((res: any) => {
+ console.log("pktesting",slug);
 
-          let detlslug1 = "";
-
-          if (!res.slug) {
-            let slugString = res.id + " " + res.name;
-            let slug = slugString;
-            detlslug1 = `${slug}.html`;
-          } else {
-            detlslug1 = `${res.slug.toString()}.html`;
-          }
-          if (res.meta?.entityType.id == 'ce_city') {
-            detlslug1 = "gb/" + detlslug1;
-          } else {
-            detlslug1 = detlslug1;
-          }
-
-          // console.log(entity.name, res);
-
-          res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
-
-            if (!detl.slug) {
-              let slugString = detl.id + " " + detl.name;
-              let slug =slugString;
-              detlslug1 = `/${slug}.html`;
-            } else {
-              detlslug1 = `/${detl.slug.toString()}.html`;
-            }
-
-            detlslug = detlslug1;
-
-          }) : detlslug = detlslug1;
+  const childrenDivs =   dm_directoryChildren &&
+  dm_directoryChildren?.map((entity: any) => {
+    if (entity?.dm_directoryChildrenCount == 1) {
+      entity.dm_directoryChildren?.map((i: any) => {
+        i.dm_directoryChildren?.map((e: any) => {
+          var name: any = e.name.toLowerCase();
+          var string: any = name.toString();
+          let result: any = string.replaceAll(" ", "-");
 
 
-        })
-      }
-      else {
-        detlslug = slug + "/" + entity.slug + ".html";
-      }
+          slugs = stagingBaseurl+'/'+slug+'/'+entity.slug + ".html";
+        });
+      });
+    
+      return (
+        <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
+          <a key={entity.slug} href={slugs} className="hover:text-red">
+            {entity.name} ({entity.dm_directoryChildrenCount})
+          </a>
+        </div>
+      );
+    } else {
+      let slug = stagingBaseurl+'/'+ document.slug + "/" + entity.slug + ".html";
+
+      return (
+        <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4 test">
+          <a key={entity.slug} href={slug} className="hover:text-red">
+            {entity.name} ({entity.dm_directoryChildrenCount})
+          </a>
+        </div>
+      );
+
     }
 
-    return (
-      <li className=" storelocation-category">
-        <a
-          key={entity.slug}
-          href={stagingBaseurl + detlslug}
-        >
-          {entity.name} ({entity.dm_directoryChildrenCount})
-        </a>
-      </li>
-    )
-  }) : null;
+   
+
+  });
 
 
   let bannerimage = c_locatorBannerImage ? c_locatorBannerImage.map((element: any) => {
@@ -310,3 +306,6 @@ const country: Template<TemplateRenderProps> = ({
 };
 
 export default country;
+
+
+

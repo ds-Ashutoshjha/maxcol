@@ -34,18 +34,28 @@ export const config: TemplateConfig = {
       "name",
       "address",
       "slug",
+      // "dm_directoryParents.name",
+      // "dm_directoryParents.slug",
+      // "dm_directoryParents.dm_directoryChildrenCount",
+      // "dm_directoryParents.meta.entityType",
+      // "dm_directoryChildren.name",
+      // "dm_directoryChildren.address",
+      // "dm_directoryChildren.slug",
+      // "dm_directoryChildren.dm_directoryChildrenCount",
+      // "dm_directoryChildren.dm_directoryChildren.name",
+      // "dm_directoryChildren.dm_directoryChildren.id",
+      // "dm_directoryChildren.dm_directoryChildren.slug",
+      // "dm_directoryChildren.dm_directoryChildren.address"
+      "c_addressRegionDisplayName",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
-      "dm_directoryParents.dm_directoryChildrenCount",
       "dm_directoryParents.meta.entityType",
       "dm_directoryChildren.name",
-      "dm_directoryChildren.address",
       "dm_directoryChildren.slug",
       "dm_directoryChildren.dm_directoryChildrenCount",
       "dm_directoryChildren.dm_directoryChildren.name",
-      "dm_directoryChildren.dm_directoryChildren.id",
       "dm_directoryChildren.dm_directoryChildren.slug",
-      "dm_directoryChildren.dm_directoryChildren.address"
+      "dm_directoryChildren.dm_directoryChildren.id",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -230,6 +240,7 @@ const region: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
+console.log('premking',document);
 
     if (typeof entity.dm_directoryChildren != "undefined") {
 
@@ -246,11 +257,11 @@ const region: Template<TemplateRenderProps> = ({
             detlslug1 = `${res.slug.toString()}.html`;
           }
 
-          detlslug = detlslug1;
+          detlslug = dm_directoryParents[1].slug+"/" + slug + "/" + entity.slug + ".html";
 
         })
       } else {
-        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
+        detlslug = dm_directoryParents[1].slug+"/" + slug + "/" + entity.slug + ".html";
       }
 
     }
