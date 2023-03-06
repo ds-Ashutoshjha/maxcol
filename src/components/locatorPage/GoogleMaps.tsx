@@ -19,7 +19,7 @@ import Hovermap from "../../images/MGMhover1.svg"
 import Hours from "../commons/hours";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import Nav from "../layouts/Nav";
-import UserMarker from "../../images/map-center.svg";
+import UserMarker from "../../images/Maxolmappin.svg";
 import { renderToString } from "react-dom/server";
 import LocationCard from "./LocationCard";
 import Opening from "../commons/openClose";

@@ -57,6 +57,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import MgmTimber from "../components/locationDetail/MgmTimber";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
 import Hours from "../components/commons/hours";
+import { ClassNames } from "@emotion/react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -687,7 +688,8 @@ const Location: Template<ExternalApiRenderData> = ({
                         </p>
                       </div>
                       <div>
-                        <button className="careButton">Learn More</button>
+                        {/* <button className="careButton">Learn More</button> */}
+                        <a href="#"><button className="careButton">LearnMore</button></a>
                       </div>
                     </div>
                   </>
@@ -800,9 +802,11 @@ const Location: Template<ExternalApiRenderData> = ({
                   <div className="Nearby-linkWrapper">
                     <button>
                       <div className="Nearby-Link">
-                        <h2 className="NearbyLink-Wrapper">
-                          {c_findALocation.label}
+                        <h2 className="NearbyLink-Wrapper"> 
+                          <a href="https://main-genuinely--adverse--anaconda-sbx-pgsdemo-com.sbx.preview.pagescdn.com/">{c_findALocation.label}</a>
+                        
                         </h2>
+                        
                       </div>
                     </button>
                   </div>

@@ -75,7 +75,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   height="20"
                   alt={""}
                 />
-                <span className="map-count">D</span>
+                <span className="map-count">M</span>
               </div>
               <h2>
                 <Link
