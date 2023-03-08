@@ -531,6 +531,7 @@ const Location: Template<ExternalApiRenderData> = ({
               {" "}
               <Contact
                 name={name}
+                
                 timezone={timezone}
                 address={address}
                 phone={mainPhone}
@@ -549,18 +550,20 @@ const Location: Template<ExternalApiRenderData> = ({
                 c_loyalityApp={c_loyalityApp}
                 hours={hours}
                 // additionalHoursText={additionalHoursText}
-              ></Contact>
+              ></Contact >
+              
+              
               <div className="map-sec" id="map_canvas">
                 {photoGallery.map((item: any) => {
                   return (
                     <>
                       <img src={item.image.url} />
                     </>
+                    
                   );
                 })}
               </div>
             </div>
-
             <div className="class-info container-lg">
               <div className="info-container">
                 <h2>Services</h2>

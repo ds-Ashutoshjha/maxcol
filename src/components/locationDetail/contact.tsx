@@ -12,13 +12,13 @@ import Model from "./Model";
 import CustomMap from "./CustomMap";
 import OpenClose from "../commons/openClose";
 
-
 const Contact = (props: any) => {
   const {
     id,
     address,
     timezone,
     phone,
+
     latitude,
     longitude,
     hours,
@@ -31,13 +31,14 @@ const Contact = (props: any) => {
     c_loyalityApp,
   } = props;
   const [timeStatus, setTimeStatus] = React.useState("");
-const onOpenHide = () => {
-  if (timeStatus == "") {
-    setTimeStatus("active");
-  } else {
-    setTimeStatus("");
-  }
-};
+  const onOpenHide = () => {
+    if (timeStatus == "") {
+      setTimeStatus("active");
+    } else {
+      setTimeStatus("");
+    }
+  };
+  console.log('mainPhone', phone)
   return (
     <>
       <div className="address-main-sec">
@@ -55,6 +56,7 @@ const onOpenHide = () => {
             />
           </div>
           <div className="  address-text notHighlight">
+           <p> {phone}</p>
             {address.line1}
             <div>{address.line2 && <div>{address.line2}</div>}</div>
             <div>{address.city}</div>
@@ -153,8 +155,6 @@ const onOpenHide = () => {
           <CustomMap prop={yextDisplayCoordinate} />
         </div>
       </div>
-
-
     </>
   );
 };
