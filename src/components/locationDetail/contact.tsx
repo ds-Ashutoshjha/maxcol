@@ -18,7 +18,6 @@ const Contact = (props: any) => {
     address,
     timezone,
     phone,
-
     latitude,
     longitude,
     hours,
@@ -38,7 +37,7 @@ const Contact = (props: any) => {
       setTimeStatus("");
     }
   };
-  console.log('mainPhone', phone)
+  // console.log("mainPhone", phone);
   return (
     <>
       <div className="address-main-sec">
@@ -56,29 +55,13 @@ const Contact = (props: any) => {
             />
           </div>
           <div className="  address-text notHighlight">
-           <p> {phone}</p>
+            <p> {phone}</p>
             {address.line1}
             <div>{address.line2 && <div>{address.line2}</div>}</div>
             <div>{address.city}</div>
             <div>{address.postalCode}</div>
           </div>
         </div>
-        {/* {hours?.openIntervals.map((item: any) => {
-          console.log(item,"rewhfhjfhfvhjkfvhkjhujhgujrh")
-              return (
-                <>
-                  <div
-                    style={{
-                      fontWeight: "600",
-                      fontSize: "18px",
-                      color: "white",
-                    }}
-                  >
-                    {item?.end}
-                  </div>
-                </>
-              );
-            })} */}
         <div className="open-close ">
           <div className="hours-sec onhighLight">
             <div className="OpenCloseStatus ">

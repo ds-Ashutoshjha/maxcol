@@ -29,7 +29,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
     }
   }
   // const { address } = result.rawData;
-  const { address, hours, additionalHoursText, mainPhone, timezone } =
+  const { address, hours, additionalHoursText, mainPhone, timezone, phone } =
     result.rawData;
   var name: any = result.rawData.name?.toLowerCase();
   var countryCode: any =
@@ -100,7 +100,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
 
             <div className="icon-row content-col address-with-availablity notHighlight">
               <Address address={address} />
-
+              <div className="phone_number">{result.rawData.mainPhone}</div>
               <div className="open-close ">
                 <div className="hours-sec onhighLight">
                   <div className="OpenCloseStatus ">

@@ -343,4 +343,5 @@ export interface Location {
 	yextRoutableCoordinate?: Coordinate,
 	yextWalkableCoordinate?: Coordinate,
 	videos?: ComplexVideo[],
+	phone? : number
 }
