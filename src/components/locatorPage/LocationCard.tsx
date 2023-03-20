@@ -2,8 +2,8 @@ import * as React from "react";
 import { CardComponent } from "@yext/search-ui-react";
 import { Location } from "../../types/search/locations";
 import GetDirection from "../commons/GetDirection";
-import redmapimage from "../../images/red-map.svg";
-import timesvg from "../../images/watch-icn.svg";
+ import redmapimage from "../../images/red-map.svg";
+// import timesvg from "../../images/watch-icn.svg";
 import Address from "../commons/Address";
 import OpenClose from "../commons/openClose";
 import { StaticData } from "../../../sites-global/staticData";
@@ -124,70 +124,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
 
                 </div>
               </div>
-              {/* {result.rawData.hours ? (
-                <>
-                  <div className="mt-2">
-                    <h6>Opening Hours</h6>
-                    {result.rawData.hours?.reopenDate ? (
-                      <>
-                        <div className="icon">
-                          {" "}
-                          <img
-                            className=" "
-                            src={timesvg}
-                            width="20"
-                            height="20"
-                            alt=""
-                          />{" "}
-                        </div>
-                        <div
-                          className=" flex open-now-string items-center "
-                          data-id={`main-shop-${result.rawData.id}`}
-                          onClick={opentime}
-                        >
-                          {StaticData.tempClosed}
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div
-                          className=" flex open-now-string items-center"
-                          data-id={`main-shop-${result.rawData.id}`}
-                        >
-                          <OpenClose
-                            timezone={result.rawData.timezone}
-                            hours={result.rawData.hours}
-                            deliveryHours={result.rawData.hours}
-                          ></OpenClose>
-                        </div>
-                      </>
-                    )}
-
-                
-                  </div>
-                </>
-              ) : (
-                <div className="closeddot notHighlight red-dot">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="8"
-                    height="8"
-                    viewBox="0 0 8 8"
-                  >
-                    <circle
-                      id="Ellipse_5"
-                      data-name="Ellipse 5"
-                      cx="4"
-                      cy="4"
-                      r="4"
-                      fill="#ad1e1f"
-                    />
-                  </svg>
-                  <div className="hours-info text-lg font-second-main-font closeddot">
-                    Closed
-                  </div>
-                </div>
-              )} */}
+              
             </div>
 
             <div className="button-bx">

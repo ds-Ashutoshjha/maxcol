@@ -379,7 +379,7 @@ const Location: Template<ExternalApiRenderData> = ({
     }
   }
   document.dm_directoryParents &&
-    document.dm_directoryParents.map((i: any, index: any) => {
+    document.dm_directoryParents?.map((i: any, index: any) => {
       if (i.meta.entityType.id == "ce_country") {
         document.dm_directoryParents[index].name =
           document.dm_directoryParents[index].name;
@@ -399,7 +399,7 @@ const Location: Template<ExternalApiRenderData> = ({
         });
       } else if (i.meta.entityType.id == "ce_region") {
         let url = "";
-        document.dm_directoryParents.map((j: any) => {
+        document.dm_directoryParents?.map((j: any) => {
           if (
             j.meta.entityType.id != "ce_region" &&
             j.meta.entityType.id != "ce_city" &&
@@ -424,7 +424,7 @@ const Location: Template<ExternalApiRenderData> = ({
         });
       } else if (i.meta.entityType.id == "ce_city") {
         let url = "";
-        document.dm_directoryParents.map((j: any) => {
+        document.dm_directoryParents?.map((j: any) => {
           if (
             j.meta.entityType.id != "ce_city" &&
             j.meta.entityType.id != "ce_root"
@@ -554,7 +554,7 @@ const Location: Template<ExternalApiRenderData> = ({
               
               
               <div className="map-sec" id="map_canvas">
-                {photoGallery.map((item: any) => {
+                {photoGallery?.map((item: any) => {
                   return (
                     <>
                       <img src={item.image.url} />
@@ -568,11 +568,11 @@ const Location: Template<ExternalApiRenderData> = ({
               <div className="info-container">
                 <h2>Services</h2>
                 <div className="services_sec_img">
-                  {c_serviceAvailable.map((iteam: any) => {
+                  {c_serviceAvailable?.map((iteam: any) => {
                     // console.log(c_serviceAvailable,"Ashutoshjha")
                     return (
                       <>
-                        {iteam.photoIcon.map((image: any) => {
+                        {iteam.photoIcon?.map((image: any) => {
                           // console.log('imagewww', image)
                           return (
                             <>
@@ -595,7 +595,7 @@ const Location: Template<ExternalApiRenderData> = ({
 
                     <div className="text-[#000]">
                       <ul className="Info-fuelsAvailable">
-                        {c_fuelName?.fuelTypes.map((item: any) => {
+                        {c_fuelName?.fuelTypes?.map((item: any) => {
                           return (
                             <>
                               <li> {item}</li>
@@ -613,7 +613,7 @@ const Location: Template<ExternalApiRenderData> = ({
                   </div>
                   <div className="fuelcard">
                     <div className="Info-label"><h3>{c_fuelheading}</h3></div>
-                    {c_fuelCardsAccepted.map((iteam: any) => {
+                    {c_fuelCardsAccepted?.map((iteam: any) => {
                       return (
                         <>
                           <div className="icon_servicesBottom">
@@ -633,7 +633,7 @@ const Location: Template<ExternalApiRenderData> = ({
                 <img src={c_loyalityReward.image.url} />
                 <p>{c_loyalityReward.textDescription}</p>
                 <ul>
-                {c_keyBenefits.map((iteam: any) => {
+                {c_keyBenefits?.map((iteam: any) => {
                     return (
                       <>
                         <li><p className="about_per">{iteam}</p></li>
@@ -653,7 +653,7 @@ const Location: Template<ExternalApiRenderData> = ({
               <div><h1>{c_brandsAtThisLocationHeading}</h1></div>
             </div>
             <div className="flex ServicesSection justify-center text-center">
-              {c_brandsAtThisLocation.map((iteam: any) => {
+              {c_brandsAtThisLocation?.map((iteam: any) => {
                 // console.log({c_brandsAtThisLocationHeading},"Ashutoshjha")
                 return (
                   <>
@@ -675,7 +675,7 @@ const Location: Template<ExternalApiRenderData> = ({
               <h2 className="ProductTitle">{c_engineSectionTitle}</h2></div>
 
             <div className="flex justify-center gap-12 my-32">
-              {c_engineCareField.map((iteam: any) => {
+              {c_engineCareField?.map((iteam: any) => {
                 return (
                   <>
                     {/* <img src={iteam?.image?.url} alt="" /> */}
