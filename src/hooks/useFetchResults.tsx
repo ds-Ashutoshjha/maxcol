@@ -6,8 +6,8 @@ const useFetchResults = () => {
   const locationResults = useSearchState(s => s.vertical.results) || [];
   const Alternateresult=  useSearchState(s => s.vertical.noResults?.allResultsForVertical.results) || [];
  
-  // const resultsCount:any = useSearchState(s => s.vertical.resultsCount) || 0;
-  // const limit:any = useSearchState(s => s.vertical.limit) || 0;
+  const resultsCount:any = useSearchState(s => s.vertical.resultsCount) || 0;
+  const limit:any = useSearchState(s => s.vertical.limit) || 0;
   const offset:any = useSearchState(s => s.vertical.offset) || 0;
   
   if(offset == 0){
@@ -45,7 +45,7 @@ const useFetchResults = () => {
         }
       }
       if(pushStatus){
-         mapLocations.push(location);
+         mapLocations.push(location); 
       }    
     }
   }
