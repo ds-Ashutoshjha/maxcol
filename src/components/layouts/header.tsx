@@ -8,11 +8,13 @@ type data = {
   c_headerMenu: any;
   c_topBarMenu: any;
   c_socialicons:any;
+  c_headerMenusLinks:any;
 };
 
 const Header = (props: data) => {
-  const { c_logo, label, c_headerMenu, c_topBarMenu,c_socialicons } = props;
+  const { c_logo, label, c_headerMenu, c_topBarMenu,c_socialicons,c_headerMenusLinks } = props;
   // console.log("headerLogo", label);
+  console.log('headerlinks', c_headerMenusLinks)
 
   return (
     <>
@@ -69,10 +71,11 @@ const Header = (props: data) => {
     <div className="Header-menu">
           <div className="Header-desktopMenu u-mobile-header-hide">
             <ul className="Header-desktopMenuLinks">
-            {c_headerMenu?.map((links: any) => {
+            {c_headerMenusLinks?.map((links: any) => {
+              
               return (
                 <li className="Header-menuItem">
-                  <a href="#" className="Header-link"> {links.label}</a>
+                  <a href="#" className="Header-link"> {links?.headerbar?.label}</a>
                 </li>
                 
               );

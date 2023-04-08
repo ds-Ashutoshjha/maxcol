@@ -463,7 +463,7 @@ const Location: Template<ExternalApiRenderData> = ({
   // console.log(document)
   // let bannerimage = c_banner_image && c_banner_image.image.url;
     console.log("testtest");
-  console.log(c_keyBenefits);
+  console.log(_site);
   return (
     <>
       <JsonLd<Store>

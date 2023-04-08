@@ -14,6 +14,7 @@ type Props = {
     c_headerMenu:any;
     c_topBarMenu:any;
     c_socialicons:any;
+    c_headerMenusLinks:any;
 };
   
   const PageLayout = ({
@@ -24,13 +25,14 @@ type Props = {
     c_logo,
     c_headerMenu,
     c_topBarMenu,
-    c_socialicons
+    c_socialicons,
+    c_headerMenusLinks
   }: Props) => {
     
     return (
         <>
 		
-        <Header  c_logo={global?.c_logo} c_headerMenu={global.c_headerMenu} c_topBarMenu={global?.c_topBarMenu} c_socialicons={global.c_socialicons}/>
+        <Header  c_logo={global?.c_logo} c_headerMenu={global.c_headerMenu} c_topBarMenu={global?.c_topBarMenu} c_socialicons={global.c_socialicons} c_headerMenusLinks={global?.c_headerMenusLinks}/>
       
                 {children}
 
