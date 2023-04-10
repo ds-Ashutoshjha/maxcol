@@ -595,7 +595,9 @@ const Location: Template<ExternalApiRenderData> = ({
 
                     <div className="text-[#000]">
                       <ul className="Info-fuelsAvailable">
+                        {console.log('c_fuelName', c_fuelName)}
                         {c_fuelName?.fuelTypes?.map((item: any) => {
+                          console.log('item', item)
                           return (
                             <>
                               <li> {item}</li>
